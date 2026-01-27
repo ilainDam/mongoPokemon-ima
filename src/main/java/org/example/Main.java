@@ -7,9 +7,6 @@ import org.bson.Document;
 
 public class Main {
     public static void main(String[] args) {
-        MongoClient mongoClient = ConexionSingleton.getConexionBD();
-        MongoDatabase mongoD = mongoClient.getDatabase("GameFreak");
-        MongoCollection<Document> mongoC = mongoD.getCollection("Pokemons");
-        mongoC.find().forEach(System.out::println);
+        Menu.menu();
     }
 }
