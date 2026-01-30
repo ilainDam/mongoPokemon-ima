@@ -48,27 +48,27 @@ public class Menu {
 
             switch (opcion) {
                 case 1 -> Consultas.consulta1(mongoC);
-//                case 2 -> Consultas.consulta2(mongoC);
-//                case 3 -> Consultas.consulta3(mongoC);
-//                case 4 -> Consultas.consulta4(mongoC);
-//                case 5 -> Consultas.consulta5(mongoC);
-//                case 6 -> Consultas.consulta6(mongoC);
-//                case 7 -> Consultas.consulta7(mongoC);
-//                case 8 -> Consultas.consulta8(mongoC);
-//                case 9 -> Consultas.consulta9(mongoC);
-//                case 10 -> Consultas.consulta10(mongoC);
-//                case 11 -> Consultas.consulta11(mongoC);
-//                case 12 -> Consultas.consulta12(mongoC);
-//                case 13 -> Consultas.consulta13(mongoC);
-//                case 14 -> Consultas.consulta14(mongoC);
-//                case 15 -> Consultas.consulta15(mongoC);
-//                case 16 -> Consultas.consulta16(mongoC);
-//                case 17 -> Consultas.consulta17(mongoC);
-//                case 18 -> Consultas.consulta18(mongoC);
-//                case 19 -> Consultas.consulta19(mongoC);
-//                case 20 -> Consultas.consulta20(mongoC);
-//                case 21 -> Consultas.consulta21(mongoC);
-//                case 22 -> Consultas.consulta22(mongoC);
+                case 2 -> Consultas.consulta2(mongoC);
+                case 3 -> Consultas.consulta3(mongoC);
+                case 4 -> Consultas.consulta4(mongoC);
+                case 5 -> Consultas.consulta5(mongoC);
+                case 6 -> Consultas.consulta6(mongoC);
+                case 7 -> Consultas.consulta7(mongoC);
+                case 8 -> Consultas.consulta8(mongoC);
+                case 9 -> Consultas.consulta9(mongoC);
+                case 10 -> Consultas.consulta10(mongoC);
+                case 11 -> Consultas.consulta11(mongoC);
+                case 12 -> Consultas.consulta12(mongoC);
+                case 13 -> Consultas.consulta13(mongoC);
+                case 14 -> Consultas.consulta14(mongoC);
+                case 15 -> Consultas.consulta15(mongoC);
+                case 16 -> Consultas.consulta16(mongoC);
+                case 17 -> Consultas.consulta17(mongoC);
+                case 18 -> Consultas.consulta18(mongoC);
+                case 19 -> Consultas.consulta19(mongoC);
+                case 20 -> Consultas.consulta20(mongoC);
+                case 21 -> Consultas.consulta21(mongoC);
+                case 22 -> Consultas.consulta22(mongoC);
                 case 0 -> {
                     salir = true;
                     System.out.println("Saliendo del menú...");
