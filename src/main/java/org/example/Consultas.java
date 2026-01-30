@@ -12,98 +12,111 @@ import java.util.Arrays;
 
 public class Consultas {
 
-    public static FindIterable<Document> consulta1(MongoCollection<Document> mongoC) {
-        FindIterable<Document> pepe = mongoC.find(Filters.gte("height", 150))
-                .sort(Sorts.ascending("height"));
-        for (Document doc : pepe) {
-            System.out.println(doc.get("name") + " ; " + doc.get("height"));
+    public static void printear(FindIterable<Document> docs) {
+        for (Document doc : docs) {
+            System.out.println(doc.toJson());
         }
-        return pepe;
     }
 
-    public static FindIterable<Document> consulta2(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.gte("weight", 80),
-                Filters.lt("capture_rate", 50)
-        ));
+    public static void consulta1(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.gte("height", 150))
+                        .sort(Sorts.ascending("height"))
+        );
     }
 
-    public static FindIterable<Document> consulta3(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.eq("color", "red"),
-                Filters.eq("habitat", "mountain")
-        ));
+    public static void consulta2(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.gte("weight", 80),
+                        Filters.lt("capture_rate", 50)
+                ))
+        );
     }
 
-    public static FindIterable<Document> consulta4(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.eq("growth_rate", "fast"),
-                Filters.eq("generation", "generation-i")
-        ));
+    public static void consulta3(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.eq("color", "red"),
+                        Filters.eq("habitat", "mountain")
+                ))
+        );
     }
 
-    // case-insensitive: contiene "cola"
-    public static FindIterable<Document> consulta5(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.regex(
-                "flavor_text_es",
-                "cola",
-                "i"
-        ));
+    public static void consulta4(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.eq("growth_rate", "fast"),
+                        Filters.eq("generation", "generation-i")
+                ))
+        );
     }
 
-    public static FindIterable<Document> consulta6(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.or(
-                Filters.eq("is_legendary", true),
-                Filters.eq("is_mythical", true)
-        ));
+    public static void consulta5(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.regex("flavor_text_es", "cola", "i"))
+        );
     }
 
-    public static FindIterable<Document> consulta7(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.all(
-                "type",
-                Arrays.asList("Bug", "Flying")
-        ));
+    public static void consulta6(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.or(
+                        Filters.eq("is_legendary", true),
+                        Filters.eq("is_mythical", true)
+                ))
+        );
     }
 
-    public static FindIterable<Document> consulta8(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.eq("color", "yellow"),
-                Filters.eq("weaknesses", "ground"),
-                Filters.gt("speed", 80)
-        ));
+    public static void consulta7(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.all("type", Arrays.asList("Bug", "Flying")))
+        );
     }
 
-    public static FindIterable<Document> consulta9(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.eq("habitat", "forest"),
-                Filters.in("type", "normal", "poison")
-        ));
+    public static void consulta8(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.eq("color", "yellow"),
+                        Filters.eq("weaknesses", "ground"),
+                        Filters.gt("speed", 80)
+                ))
+        );
     }
 
-    public static FindIterable<Document> consulta10(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.gte("capture_rate", 200),
-                Filters.or(
-                        Filters.exists("next_evolution", false),
-                        Filters.size("next_evolution", 0)
-                )
-        ));
+    public static void consulta9(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.eq("habitat", "forest"),
+                        Filters.in("type", "normal", "poison")
+                ))
+        );
     }
 
-    public static FindIterable<Document> consulta11(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.eq("abilities.is_hidden", true));
+    public static void consulta10(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.gte("capture_rate", 200),
+                        Filters.or(
+                                Filters.exists("next_evolution", false),
+                                Filters.size("next_evolution", 0)
+                        )
+                ))
+        );
     }
 
-    // empieza por "g", case-insensitive
-    public static FindIterable<Document> consulta12(MongoCollection<Document> mongoC) {
-        return mongoC.find(Filters.and(
-                Filters.regex(
-                        "abilities.name",
-                        "^g",
-                        "i"
-                ),
-                Filters.eq("abilities.is_hidden", true)
-        ));
+    public static void consulta11(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.eq("abilities.is_hidden", true))
+        );
+    }
+
+    public static void consulta12(MongoCollection<Document> mongoC) {
+        printear(
+                mongoC.find(Filters.and(
+                        Filters.regex("abilities.name", "^g", "i"),
+                        Filters.eq("abilities.is_hidden", true)
+                ))
+        );
     }
 
     public static void consulta13(MongoCollection<Document> mongoC) {
